@@ -1,0 +1,12 @@
+public class ComputerLaptop{
+
+  private String hostName;
+  private String ipAddress;
+
+  public ComputerLaptop(String hName, String ipAddress){
+    this.hName = hostName;
+    this.ipAddress = ipAddress;
+  }
+
+  
+}

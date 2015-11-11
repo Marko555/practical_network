@@ -1,0 +1,47 @@
+import java.io.*; /* Required for handling the IOExceptions */
+import java.util.*;
+public class FileRead
+{
+
+	public static String readFromFile( String fileName )
+	{
+		String text = "";
+		try
+		{
+			/* Create a FileWriter object that handles the low-level details of reading */
+			FileReader theFile = new FileReader( fileName );
+
+			/* Create a BufferedReader object to wrap around the FileWriter object */
+			/* This allows the use of high-level methods like readline */
+			BufferedReader fileIn  = new BufferedReader( theFile );
+
+			List<String> lst = new ArrayList<String>();
+
+			text = fileIn.readLine();
+
+			/* Read the rest of the lines of the file and output them on the screen */
+			while( fileIn.readLine() != null ) /* A null string indicates the end of file */
+			{
+
+				//System.out.println( oneLine );
+				text += "\n" +  fileIn.readLine();
+
+			}
+
+			/* Close the file so that it is no longer accessible to the program */
+			fileIn.close( );
+		}
+
+		/* Handle the exception thrown by the FileReader constructor if file is not found */
+		catch (FileNotFoundException e){
+			System.out.println( "Unable to locate the file: " + fileName );
+		}
+
+		/* Handle the exception thrown by the FileReader methods */
+		catch (IOException e){
+			System.out.println( "There was a problem reading the file: " + fileName);
+		}
+		return text;
+
+	} /* End of method readFromFile */
+} /* End of class FileRead */

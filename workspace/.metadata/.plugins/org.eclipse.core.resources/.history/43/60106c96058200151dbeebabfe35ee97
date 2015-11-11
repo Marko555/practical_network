@@ -1,0 +1,12 @@
+public class UserLaptop {
+
+  private String username;
+  private String password;
+
+  public UserLaptop(String name, String pass){
+    this.username = name;
+    this.password = pass;
+  }
+
+  
+}
